@@ -26,3 +26,8 @@ select*, unit_price*quantity as total_price from order_items where order_id = 2 
 select* from customers limit 5
 -- limt used to off set and pick the desired records,
 select* from customers order by points desc limit 3
+-- join tables
+select order_id,o.customer_id,first_name,last_name from orders o
+join customers c on o.customer_id = c.customer_id 
+select order_id,oi.product_id,quantity,oi.unit_price,name 
+from order_items oi join products p on oi.product_id = p.product_id
