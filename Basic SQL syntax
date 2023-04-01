@@ -1,0 +1,28 @@
+SELECT * FROM sql_store.customers;
+select distinct customer_id, state  from customers;
+select * from customers where birth_date > '1991-07-05' and points > 1000;
+select * from order_items;
+select product_id,unit_price*quantity as total_price  from order_items where order_id = 6 and unit_price*quantity > 30;
+select * from customers where state IN ('VA', 'GA', 'FL');
+select * from products where quantity_in_stock not in ( 49,38,72);
+select * from customers where points between 1000 and 3000;
+select * from customers where birth_date between '1990-1-1' and '2000-1-1';
+select * from customers where last_name like '_____y';
+select * from customers where address like '%Trail%'
+or address like '%Avenue%'; 
+select * from customers where phone like '%9';
+select * from customers where first_name regexp 'elka|ambur'
+or first_name regexp 'ambur';
+select * from customers where last_name regexp 'EY$|on$'
+select * from customers where last_name regexp '^my|se'
+select * from customers where last_name regexp 'b[ru]' 
+select *from customers where phone is not null
+select * from orders
+-- IS NULL expression
+select* from orders where shipper_id is null
+-- Sort a table based on a field
+select*, unit_price*quantity as total_price from order_items where order_id = 2 order by total_price desc
+-- Limit is used to limit the no of recors fetched
+select* from customers limit 5
+-- limt used to off set and pick the desired records,
+select* from customers order by points desc limit 3
